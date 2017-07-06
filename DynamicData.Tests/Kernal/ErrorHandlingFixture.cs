@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Threading;
-using DynamicData.Kernel;
-using NUnit.Framework;
+using FluentAssertions;
+using Xunit;
 
 namespace DynamicData.Tests.Kernal
 {
-    [TestFixture]
+    
     public class ErrorHandlingFixture
     {
-        [SetUp]
-        public void Initialise()
-        {
-        }
 
         private class Entity
         {
-            public int Key { get { return 10; } }
+            public int Key => 10;
         }
 
         private class TransformEntityWithError
@@ -30,15 +25,15 @@ namespace DynamicData.Tests.Kernal
                 throw new Exception("Error transforming entity");
             }
 
-            public int Key { get { return 10; } }
+            public int Key { get; } = 10;
         }
 
         private class ErrorInKey
         {
-            public int Key { get { throw new Exception("Calling Key"); } }
+            public static int Key => throw new Exception("Calling Key");
         }
 
-        [Test]
+        [Fact]
         public void TransformError()
         {
             bool completed = false;
@@ -56,11 +51,11 @@ namespace DynamicData.Tests.Kernal
 
             subscriber.Dispose();
 
-            Assert.IsTrue(error, "Error has not been invoked");
-            Assert.IsTrue(completed, "Completed has not been called");
+            error.Should().BeTrue();
+            completed.Should().BeTrue();
         }
 
-        [Test]
+        [Fact]
         public void FilterError()
         {
             bool completed = false;
@@ -69,33 +64,34 @@ namespace DynamicData.Tests.Kernal
             var source = new SourceCache<TransformEntityWithError, int>(e => e.Key);
 
             var subscriber = source.Connect()
-                                   .Filter(x => true)
-                                   .Finally(() => completed = true)
-                                   .Subscribe(updates => { Console.WriteLine(); });
+                .Filter(x => true)
+                .Finally(() => completed = true)
+                .Subscribe(updates => { Console.WriteLine(); });
 
             source.Edit(updater => updater.AddOrUpdate(new TransformEntityWithError(new Entity())), ex => error = true);
             subscriber.Dispose();
 
-            Assert.IsTrue(error, "Error has not been invoked");
-            Assert.IsTrue(completed, "Completed has not been called");
+            error.Should().BeTrue();
+            completed.Should().BeTrue();
         }
 
-        [Test]
+        [Fact]
         public void ErrorUpdatingStreamIsHandled()
         {
             bool completed = false;
             bool error = false;
 
-            var cache = new SourceCache<ErrorInKey, int>(p => p.Key);
+            var cache = new SourceCache<ErrorInKey, int>(p => ErrorInKey.Key);
 
-            var subscriber = cache.Connect().Finally(() => completed = true)
-                                  .Subscribe(updates => { Console.WriteLine(); });
+            var subscriber = cache.Connect()
+                .Finally(() => completed = true)
+                .Subscribe(updates => { Console.WriteLine(); });
 
             cache.Edit(updater => updater.AddOrUpdate(new ErrorInKey()), ex => error = true);
             subscriber.Dispose();
 
-            Assert.IsTrue(error, "Error has not been invoked");
-            Assert.IsTrue(completed, "Completed has not been called");
+            error.Should().BeTrue();
+            completed.Should().BeTrue();
         }
     }
 }

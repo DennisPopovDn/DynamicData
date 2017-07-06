@@ -16,11 +16,8 @@ namespace DynamicData.Cache.Internal
 
         public GroupOn(IObservable<IChangeSet<TObject, TKey>> source, Func<TObject, TGroupKey> groupSelectorKey, IObservable<Unit> regrouper)
         {
-            if (source == null) throw new ArgumentNullException(nameof(source));
-            if (groupSelectorKey == null) throw new ArgumentNullException(nameof(groupSelectorKey));
-
-            _source = source;
-            _groupSelectorKey = groupSelectorKey;
+            _source = source ?? throw new ArgumentNullException(nameof(source));
+            _groupSelectorKey = groupSelectorKey ?? throw new ArgumentNullException(nameof(groupSelectorKey));
             _regrouper = regrouper ?? Observable.Never<Unit>();
         }
 
@@ -31,7 +28,7 @@ namespace DynamicData.Cache.Internal
                     observer =>
                     {
                         var locker = new object();
-                        var grouper = new Grouper<TObject, TKey, TGroupKey>(_groupSelectorKey);
+                        var grouper = new Grouper(_groupSelectorKey);
 
                         var groups = _source
                             .Finally(observer.OnCompleted)
@@ -43,8 +40,7 @@ namespace DynamicData.Cache.Internal
                             .Select(_ => grouper.Regroup())
                             .Where(changes => changes.Count != 0);
 
-                        var published = groups.Merge(regroup)
-                        .Where(changes => changes.Count != 0).Publish();
+                        var published = groups.Merge(regroup).Publish();
                         var subscriber = published.SubscribeSafe(observer);
                         var disposer = published.DisposeMany().Subscribe();
 
@@ -59,7 +55,7 @@ namespace DynamicData.Cache.Internal
                     });
         }
 
-        private sealed class Grouper<TObject, TKey, TGroupKey>
+        private sealed class Grouper
         {
             private readonly IDictionary<TGroupKey, ManagedGroup<TObject, TKey, TGroupKey>> _groupCache = new Dictionary<TGroupKey, ManagedGroup<TObject, TKey, TGroupKey>>();
             private readonly Func<TObject, TGroupKey> _groupSelectorKey;
@@ -78,7 +74,7 @@ namespace DynamicData.Cache.Internal
             public IGroupChangeSet<TObject, TKey, TGroupKey> Regroup()
             {
                 //re-evaluate all items in the group
-                var items = _itemCache.Select(item => new Change<TObject, TKey>(ChangeReason.Evaluate, item.Key, item.Value.Item));
+                var items = _itemCache.Select(item => new Change<TObject, TKey>(ChangeReason.Refresh, item.Key, item.Value.Item));
                 return HandleUpdates(new ChangeSet<TObject, TKey>(items), true);
             }
 
@@ -165,7 +161,7 @@ namespace DynamicData.Cache.Internal
 
                                         break;
                                     }
-                                case ChangeReason.Evaluate:
+                                case ChangeReason.Refresh:
                                     {
                                         //check whether the previous item was in a different group. If so remove from old group
                                         var previous = _itemCache.Lookup(current.Key);
@@ -175,7 +171,7 @@ namespace DynamicData.Cache.Internal
                                             if (p.GroupKey.Equals(current.GroupKey))
                                             {
                                                 //propagate evaluates up the chain
-                                                if (!isRegrouping) groupUpdater.Evaluate(current.Key);
+                                                if (!isRegrouping) groupUpdater.Refresh(current.Key);
                                                 return;
                                             }
 

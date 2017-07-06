@@ -54,6 +54,9 @@
     <Compile Include="Binding\AbstractNotifyPropertyChanged.cs" />
     <Compile Include="Binding\ExpressionBuilder.cs" />
     <Compile Include="Binding\NotifyPropertyChangedEx.cs" />
+    <Compile Include="Binding\ObservablePropertyFactory.cs" />
+    <Compile Include="Binding\ObservablePropertyFactoryCache.cs" />
+    <Compile Include="Binding\ObservablePropertyPart.cs" />
     <Compile Include="Binding\PropertyValue.cs" />
     <Compile Include="Aggregation\AggregateEnumerator.cs" />
     <Compile Include="Aggregation\AggregationEx.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="Cache\Internal\AbstractFilter.cs" />
     <Compile Include="Cache\Internal\AnonymousObservableCache.cs" />
     <Compile Include="Cache\Internal\AnonymousQuery.cs" />
+    <Compile Include="Cache\Internal\AutoRefresh.cs" />
     <Compile Include="Cache\Internal\BatchIf.cs" />
     <Compile Include="Cache\Internal\Cache.cs" />
     <Compile Include="Cache\Internal\CacheEx.cs" />
@@ -145,6 +149,7 @@
     <Compile Include="Cache\Internal\TransformMany.cs" />
     <Compile Include="Cache\Internal\TreeBuilder.cs" />
     <Compile Include="Cache\Internal\TrueFor.cs" />
+    <Compile Include="Cache\Internal\Virtualiser.cs" />
     <Compile Include="Cache\Node.cs" />
     <Compile Include="Cache\ObservableCacheEx.cs" />
     <Compile Include="Cache\SortOptimisations.cs" />
@@ -177,6 +182,7 @@
     <Compile Include="List\ChangeType.cs" />
     <Compile Include="List\IChangeSetAdaptor.cs" />
     <Compile Include="List\IGrouping.cs" />
+    <Compile Include="List\Internal\AutoRefresh.cs" />
     <Compile Include="List\Internal\BufferIf.cs" />
     <Compile Include="List\Internal\Combiner.cs" />
     <Compile Include="List\Internal\DeferUntilLoaded.cs" />
@@ -185,6 +191,7 @@
     <Compile Include="List\Internal\EditDiff.cs" />
     <Compile Include="List\Internal\ExpirableItem.cs" />
     <Compile Include="List\Internal\ExpireAfter.cs" />
+    <Compile Include="List\Internal\Filter.cs" />
     <Compile Include="List\Internal\FilterOnProperty.cs" />
     <Compile Include="List\Internal\Group.cs" />
     <Compile Include="List\Internal\GroupOn.cs" />
@@ -192,7 +199,6 @@
     <Compile Include="List\Internal\GroupOnImmutable.cs" />
     <Compile Include="List\Internal\GroupOnProperty.cs" />
     <Compile Include="List\Internal\GroupOnPropertyWithImmutableState.cs" />
-    <Compile Include="List\Internal\ImmutableFilter.cs" />
     <Compile Include="Controllers\FilterController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -231,7 +237,6 @@
     <Compile Include="List\ChangeSet.cs" />
     <Compile Include="List\Internal\ImmutableGroup.cs" />
     <Compile Include="List\Internal\MergeMany.cs" />
-    <Compile Include="List\Internal\MutableFilter.cs" />
     <Compile Include="List\Internal\OnBeingAdded.cs" />
     <Compile Include="List\Internal\OnBeingRemoved.cs" />
     <Compile Include="List\Internal\Pager.cs" />
@@ -284,7 +289,6 @@
     <Compile Include="Cache\PageResponse.cs" />
     <Compile Include="Cache\SortReason.cs" />
     <Compile Include="Cache\VirtualChangeSet.cs" />
-    <Compile Include="Cache\Virtualiser.cs" />
     <Compile Include="Cache\VirtualRequest.cs" />
     <Compile Include="Cache\VirtualResponse.cs" />
     <Compile Include="ObsoleteEx.cs" />

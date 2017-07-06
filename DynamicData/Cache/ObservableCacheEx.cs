@@ -117,6 +117,19 @@ namespace DynamicData
             return source.Do(changes => changes.ForEach(action));
         }
 
+
+        /// <summary>
+        /// Ignores updates when the update is the same reference
+        /// </summary>
+        /// <typeparam name="TObject"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static IObservable<IChangeSet<TObject, TKey>> IgnoreSameReferenceUpdate<TObject, TKey>(this IObservable<IChangeSet<TObject, TKey>> source)
+        {
+            return source.IgnoreUpdateWhen((c, p) => ReferenceEquals(c,p));
+        }
+
         /// <summary>
         /// Ignores the update when the condition is met.
         /// The first parameter in the ignore function is the current value and the second parameter is the previous value
@@ -265,13 +278,14 @@ namespace DynamicData
         /// <exception cref="System.ArgumentNullException">
         /// </exception>
         public static IObservable<TValue> WhenValueChanged<TObject, TKey, TValue>([NotNull] this IObservable<IChangeSet<TObject, TKey>> source,
-                                                                                  [NotNull] Expression<Func<TObject, TValue>> propertyAccessor, bool notifyOnInitialValue = true)
+                                                                                  [NotNull] Expression<Func<TObject, TValue>> propertyAccessor,
+                                                                                  bool notifyOnInitialValue = true)
             where TObject : INotifyPropertyChanged
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (propertyAccessor == null) throw new ArgumentNullException(nameof(propertyAccessor));
 
-            return source.MergeMany(t => t.WhenValueChanged(propertyAccessor, notifyOnInitialValue));
+            return source.MergeMany(t => t.WhenChanged(propertyAccessor, notifyOnInitialValue));
         }
 
         /// <summary>
@@ -287,15 +301,14 @@ namespace DynamicData
         /// <exception cref="System.ArgumentNullException">
         /// </exception>
         public static IObservable<PropertyValue<TObject, TValue>> WhenPropertyChanged<TObject, TKey, TValue>([NotNull] this IObservable<IChangeSet<TObject, TKey>> source,
-                                                                                                             [NotNull] Expression<Func<TObject, TValue>> propertyAccessor, bool notifyOnInitialValue = true)
+                                                                                                             [NotNull] Expression<Func<TObject, TValue>> propertyAccessor, 
+                                                                                                             bool notifyOnInitialValue = true)
             where TObject : INotifyPropertyChanged
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (propertyAccessor == null) throw new ArgumentNullException(nameof(propertyAccessor));
 
-            var member = propertyAccessor.GetProperty();
-            var accessor = propertyAccessor.Compile();
-            return source.MergeMany(t => t.WhenPropertyChanged(accessor, member.Name, notifyOnInitialValue));
+            return source.MergeMany(t => t.WhenPropertyChanged(propertyAccessor, notifyOnInitialValue));
         }
 
         /// <summary>
@@ -472,11 +485,87 @@ namespace DynamicData
                 return new ChangeSet<TObject, TKey>(updates.Where(u => !hashed.Contains(u.Reason)));
             }).NotEmpty();
         }
-        
+
+        #endregion
+
+        #region Auto Refresh
+
+        /// <summary>
+        /// Automatically refresh downstream operators when properties change.
+        /// </summary>
+        /// <param name="source">The source observable</param>
+        /// <param name="propertyAccessor">Specify a property to observe changes. When it changes a Refresh is invoked</param>
+        /// <param name="changeSetBuffer">Batch up changes by specifying the buffer. This greatly increases performance when many elements have sucessive property changes</param>
+        /// <param name="propertyChangeThrottle">When observing on multiple property changes, apply a throttle to prevent excessive refesh invocations</param>
+        /// <param name="scheduler">The scheduler</param>
+        /// <returns>An observable change set with additional refresh changes</returns>
+        public static IObservable<IChangeSet<TObject, TKey>> AutoRefresh<TObject, TKey, TProperty>(this IObservable<IChangeSet<TObject, TKey>> source,
+            Expression<Func<TObject, TProperty>> propertyAccessor,
+            TimeSpan? changeSetBuffer = null,
+            TimeSpan? propertyChangeThrottle = null,
+            IScheduler scheduler = null)
+            where TObject : INotifyPropertyChanged
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+
+            return source.AutoRefresh((t, v) =>
+            {
+                if (propertyChangeThrottle == null)
+                    return t.WhenPropertyChanged(propertyAccessor, false);
+
+                return t.WhenPropertyChanged(propertyAccessor, false)
+                    .Throttle(propertyChangeThrottle.Value, scheduler ?? Scheduler.Default);
+            }, changeSetBuffer, scheduler);
+        }
+
+        /// <summary>
+        /// Automatically refresh downstream operators when properties change.
+        /// </summary>
+        /// <param name="source">The source observable change set</param>
+        /// <param name="reevaluator">An observable which acts on items within the collection and produces a value when the item should be refreshed</param>
+        /// <param name="changeSetBuffer">Batch up changes by specifying the buffer. This greatly increases performance when many elements require a refresh</param>
+        /// <param name="scheduler">The scheduler</param>
+        /// <returns>An observable change set with additional refresh changes</returns>
+        public static IObservable<IChangeSet<TObject, TKey>> AutoRefresh<TObject, TKey, TAny>(this IObservable<IChangeSet<TObject, TKey>> source,
+            Func<TObject, IObservable<TAny>> reevaluator,
+            TimeSpan? changeSetBuffer = null,
+            IScheduler scheduler = null)
+        {
+            return source.AutoRefresh((t, v) => reevaluator(t), changeSetBuffer, scheduler);
+        }
+
+        /// <summary>
+        /// Automatically refresh downstream operators when properties change.
+        /// </summary>
+        /// <param name="source">The source observable change set</param>
+        /// <param name="reevaluator">An observable which acts on items within the collection and produces a value when the item should be refreshed</param>
+        /// <param name="changeSetBuffer">Batch up changes by specifying the buffer. This g  reatly increases performance when many elements require a refresh</param>
+        /// <param name="scheduler">The scheduler</param>
+        /// <returns>An observable change set with additional refresh changes</returns>
+        public static IObservable<IChangeSet<TObject, TKey>> AutoRefresh<TObject, TKey, TAny>(this IObservable<IChangeSet<TObject, TKey>> source,
+            Func<TObject, TKey, IObservable<TAny>> reevaluator,
+            TimeSpan? changeSetBuffer = null,
+            IScheduler scheduler = null)
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+            if (reevaluator == null) throw new ArgumentNullException(nameof(reevaluator));
+            return new AutoRefresh<TObject, TKey, TAny>(source, reevaluator, changeSetBuffer,  scheduler).Run();
+        }
+
+        /// <summary>
+        /// Supress  refresh notifications
+        /// </summary>
+        /// <param name="source">The source observable change set</param>
+        /// <returns></returns>
+        public static IObservable<IChangeSet<TObject, TKey>> SupressRefresh<TObject, TKey>(this IObservable<IChangeSet<TObject, TKey>> source)
+        {
+            return source.WhereReasonsAreNot(ChangeReason.Refresh);
+        }
+
         #endregion
 
         #region Start with
-        
+
         /// <summary>
         /// Prepends an empty changeset to the source
         /// </summary>
@@ -1410,7 +1499,7 @@ namespace DynamicData
         }
 
         /// <summary>
-        /// Invokes Evaluate method for an object which implements IEvaluateAware
+        /// Invokes Refresh method for an object which implements IEvaluateAware
         /// </summary>
         /// <typeparam name="TObject">The type of the object.</typeparam>
         /// <typeparam name="TKey">The type of the key.</typeparam>
@@ -1419,7 +1508,7 @@ namespace DynamicData
         public static IObservable<IChangeSet<TObject, TKey>> InvokeEvaluate<TObject, TKey>(this IObservable<IChangeSet<TObject, TKey>> source)
             where TObject : IEvaluateAware
         {
-            return source.Do(changes => changes.Where(u => u.Reason == ChangeReason.Evaluate).ForEach(u => u.Current.Evaluate()));
+            return source.Do(changes => changes.Where(u => u.Reason == ChangeReason.Refresh).ForEach(u => u.Current.Evaluate()));
         }
 
         #endregion
@@ -1932,7 +2021,7 @@ namespace DynamicData
                 (
                     observer =>
                     {
-                        Action<IChangeSet<TObject, TKey>> updateAction = updates =>
+                        void UpdateAction(IChangeSet<TObject, TKey> updates)
                         {
                             try
                             {
@@ -1942,11 +2031,12 @@ namespace DynamicData
                             {
                                 observer.OnError(ex);
                             }
-                        };
+                        }
+
                         IDisposable subscriber = Disposable.Empty;
                         try
                         {
-                            var combiner = new Combiner<TObject, TKey>(type, updateAction);
+                            var combiner = new Combiner<TObject, TKey>(type, UpdateAction);
                             subscriber = combiner.Subscribe(sources.ToArray());
                         }
                         catch (Exception ex)
@@ -1969,7 +2059,7 @@ namespace DynamicData
                 (
                     observer =>
                     {
-                        Action<IChangeSet<TObject, TKey>> updateAction = updates =>
+                        void UpdateAction(IChangeSet<TObject, TKey> updates)
                         {
                             try
                             {
@@ -1980,14 +2070,15 @@ namespace DynamicData
                                 observer.OnError(ex);
                                 observer.OnCompleted();
                             }
-                        };
+                        }
+
                         IDisposable subscriber = Disposable.Empty;
                         try
                         {
                             var list = combinetarget.ToList();
                             list.Insert(0, source);
 
-                            var combiner = new Combiner<TObject, TKey>(type, updateAction);
+                            var combiner = new Combiner<TObject, TKey>(type, UpdateAction);
                             subscriber = combiner.Subscribe(list.ToArray());
                         }
                         catch (Exception ex)
@@ -2175,8 +2266,8 @@ namespace DynamicData
         {
             return source?.Select(_ =>
             {
-                Func<TSource, TKey, bool> transformer = (item, key) => true;
-                return transformer;
+                bool Transformer(TSource item, TKey key) => true;
+                return (Func<TSource, TKey, bool>) Transformer;
             });
         }
 
@@ -2184,8 +2275,8 @@ namespace DynamicData
         {
             return source?.Select(condition =>
             {
-                Func<TSource, TKey, bool> transformer = (item, key) => condition(item);
-                return transformer;
+                bool Transformer(TSource item, TKey key) => condition(item);
+                return (Func<TSource, TKey, bool>) Transformer;
             });
         }
 
@@ -2279,29 +2370,9 @@ namespace DynamicData
 
         #region Transform many
 
-        /// <summary>
-        /// Equivalent to a select many transform. To work, the key must individually identify each child. 
-        /// 
-        /// **** Assumes each child can only have one  parent - support for children with multiple parents is a work in progresss
-        /// </summary>
-        /// <typeparam name="TDestination">The type of the destination.</typeparam>
-        /// <typeparam name="TDestinationKey">The type of the destination key.</typeparam>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
-        /// <typeparam name="TSourceKey">The type of the source key.</typeparam>
-        /// <param name="source">The source.</param>
-        /// <param name="manyselector">The manyselector.</param>s
-        /// <returns></returns>
-        public static IObservable<IChangeSet<TDestination, TDestinationKey>> TransformMany<TDestination, TDestinationKey, TSource, TSourceKey>(this IObservable<IChangeSet<TSource, TSourceKey>> source,
-                                                                 Func<TSource, IEnumerable<TDestination>> manyselector)
-            where TDestination : IKey<TDestinationKey>
-        {
-            return source.FlattenWithSingleParent(manyselector, t => t.Key);
-        }
 
         /// <summary>
         /// Equivalent to a select many transform. To work, the key must individually identify each child. 
-        /// 
-        /// **** Assumes each child can only have one  parent - support for children with multiple parents is a work in progresss
         /// </summary>
         /// <typeparam name="TDestination">The type of the destination.</typeparam>
         /// <typeparam name="TDestinationKey">The type of the destination key.</typeparam>
@@ -2310,18 +2381,16 @@ namespace DynamicData
         /// <param name="source">The source.</param>
         /// <param name="manyselector">The manyselector.</param>
         /// <param name="keySelector">The key selector which must be unique across all</param>
-        /// <param name="childHasOneParent">if set to <c>true</c> the child only ever belongs to one parent</param>
-        /// <returns></returns>
         public static IObservable<IChangeSet<TDestination, TDestinationKey>> TransformMany<TDestination, TDestinationKey, TSource, TSourceKey>(
             this IObservable<IChangeSet<TSource, TSourceKey>> source,
-            Func<TSource, IEnumerable<TDestination>> manyselector, Func<TDestination, TDestinationKey> keySelector,
-            bool childHasOneParent = true)
+            Func<TSource, IEnumerable<TDestination>> manyselector,
+            Func<TDestination, TDestinationKey> keySelector)
         {
-            return source.FlattenWithSingleParent(manyselector, keySelector);
+            return new TransformMany<TDestination, TDestinationKey, TSource, TSourceKey>(source, manyselector, keySelector).Run();
         }
 
         /// <summary>
-        /// Flattens the with single parent.
+        /// Flatten the nested observable collection, and subsequently observe observable collection changes
         /// </summary>
         /// <typeparam name="TDestination">The type of the destination.</typeparam>
         /// <typeparam name="TDestinationKey">The type of the destination key.</typeparam>
@@ -2329,13 +2398,38 @@ namespace DynamicData
         /// <typeparam name="TSourceKey">The type of the source key.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="manyselector">The manyselector.</param>
-        /// <param name="keySelector">The key selector.</param>
-        /// <returns></returns>
-        internal static IObservable<IChangeSet<TDestination, TDestinationKey>> FlattenWithSingleParent<TDestination, TDestinationKey, TSource, TSourceKey>(this IObservable<IChangeSet<TSource, TSourceKey>> source,
-                                                                 Func<TSource, IEnumerable<TDestination>> manyselector, Func<TDestination, TDestinationKey> keySelector)
+        /// <param name="keySelector">The key selector which must be unique across all</param>
+        public static IObservable<IChangeSet<TDestination, TDestinationKey>> TransformMany<TDestination, TDestinationKey, TSource, TSourceKey>(
+            this IObservable<IChangeSet<TSource, TSourceKey>> source,
+            Func<TSource, ObservableCollection<TDestination>> manyselector,
+            Func<TDestination, TDestinationKey> keySelector)
         {
-            return new TransformMany<TDestination, TDestinationKey, TSource, TSourceKey>(source, manyselector, keySelector).Run();
+            return new TransformMany<TDestination, TDestinationKey, TSource, TSourceKey> (source, 
+                manyselector, 
+                keySelector,
+                t => manyselector(t).ToObservableChangeSet(keySelector)).Run();
         }
+
+        /// <summary>
+        /// Flatten the nested observable collection, and subsequently observe observable collection changes
+        /// </summary>
+        /// <typeparam name="TDestination">The type of the destination.</typeparam>
+        /// <typeparam name="TDestinationKey">The type of the destination key.</typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="TSourceKey">The type of the source key.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="manyselector">The manyselector.</param>
+        /// <param name="keySelector">The key selector which must be unique across all</param>
+        public static IObservable<IChangeSet<TDestination, TDestinationKey>> TransformMany<TDestination, TDestinationKey, TSource, TSourceKey>( this IObservable<IChangeSet<TSource, TSourceKey>> source,
+            Func<TSource, ReadOnlyObservableCollection<TDestination>> manyselector,
+            Func<TDestination, TDestinationKey> keySelector)
+        {
+            return new TransformMany<TDestination, TDestinationKey, TSource, TSourceKey>(source,
+                manyselector,
+                keySelector,
+                t => manyselector(t).ToObservableChangeSet(keySelector)).Run();
+        }
+
 
         #endregion
 
@@ -4054,10 +4148,10 @@ namespace DynamicData
         /// <param name="source">The source.</param>
         /// <param name="item">The item.</param>
         /// <exception cref="System.ArgumentNullException">source</exception>
-        public static void Evaluate<TObject, TKey>(this ISourceCache<TObject, TKey> source, TObject item)
+        public static void Refresh<TObject, TKey>(this ISourceCache<TObject, TKey> source, TObject item)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
-            source.Edit(updater => updater.Evaluate(item));
+            source.Edit(updater => updater.Refresh(item));
         }
 
         /// <summary>
@@ -4068,12 +4162,11 @@ namespace DynamicData
         /// <param name="source">The source.</param>
         /// <param name="items">The items.</param>
         /// <exception cref="System.ArgumentNullException">source</exception>
-        public static void Evaluate<TObject, TKey>(this ISourceCache<TObject, TKey> source, IEnumerable<TObject> items)
+        public static void Refresh<TObject, TKey>(this ISourceCache<TObject, TKey> source, IEnumerable<TObject> items)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
-            source.Edit(updater => updater.Evaluate(items));
+            source.Edit(updater => updater.Refresh(items));
         }
-
 
         /// <summary>
         /// Signal observers to re-evaluate the all items.
@@ -4082,10 +4175,55 @@ namespace DynamicData
         /// <typeparam name="TKey">The type of the key.</typeparam>
         /// <param name="source">The source.</param>
         /// <exception cref="System.ArgumentNullException">source</exception>
+        public static void Refresh<TObject, TKey>(this ISourceCache<TObject, TKey> source)
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+            source.Edit(updater => updater.Refresh());
+        }
+
+
+        /// <summary>
+        /// Signal observers to re-evaluate the specified item.
+        /// </summary>
+        /// <typeparam name="TObject">The type of the object.</typeparam>
+        /// <typeparam name="TKey">The type of the key.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="item">The item.</param>
+        /// <exception cref="System.ArgumentNullException">source</exception>
+        [Obsolete(Constants.EvaluateIsDead)]
+        public static void Evaluate<TObject, TKey>(this ISourceCache<TObject, TKey> source, TObject item)
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+            source.Edit(updater => updater.Refresh(item));
+        }
+
+        /// <summary>
+        /// Signal observers to re-evaluate the specified items.
+        /// </summary>
+        /// <typeparam name="TObject">The type of the object.</typeparam>
+        /// <typeparam name="TKey">The type of the key.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="items">The items.</param>
+        /// <exception cref="System.ArgumentNullException">source</exception>
+        [Obsolete(Constants.EvaluateIsDead)]
+        public static void Evaluate<TObject, TKey>(this ISourceCache<TObject, TKey> source, IEnumerable<TObject> items)
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+            source.Edit(updater => updater.Refresh(items));
+        }
+
+        /// <summary>
+        /// Signal observers to re-evaluate the all items.
+        /// </summary>
+        /// <typeparam name="TObject">The type of the object.</typeparam>
+        /// <typeparam name="TKey">The type of the key.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <exception cref="System.ArgumentNullException">source</exception>
+        [Obsolete(Constants.EvaluateIsDead)]
         public static void Evaluate<TObject, TKey>(this ISourceCache<TObject, TKey> source)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
-            source.Edit(updater => updater.Evaluate());
+            source.Edit(updater => updater.Refresh());
         }
 
         /// <summary>
