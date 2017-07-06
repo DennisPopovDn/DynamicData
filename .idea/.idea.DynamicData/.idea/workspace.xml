@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b512c383-01dc-41da-969e-c283d0360a24" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="CountEx.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DynamicData/Aggregation/CountEx.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-150">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1499121057747" expanded="false" signature="6:60" ph="..." />
+                <marker date="1499121057747" expanded="true" signature="95:2267" ph="{...}" />
+                <marker date="1499121057747" expanded="true" signature="102:159" ph="/// Count extensions ... " />
+                <marker date="1499121057747" expanded="true" signature="191:2265" ph="{...}" />
+                <marker date="1499121057747" expanded="true" signature="206:544" ph="/// Counts the total number of items in the underlying data source ... " />
+                <marker date="1499121057747" expanded="true" signature="656:728" ph="{...}" />
+                <marker date="1499121057747" expanded="true" signature="738:1008" ph="/// Counts the total number of items in the underlying data source ... " />
+                <marker date="1499121057747" expanded="true" signature="1108:1180" ph="{...}" />
+                <marker date="1499121057747" expanded="true" signature="1190:1460" ph="/// Counts the total number of items in the underlying data source ... " />
+                <marker date="1499121057747" expanded="true" signature="1569:1799" ph="{...}" />
+                <marker date="1499121057747" expanded="true" signature="1809:2079" ph="/// Counts the total number of items in the underlying data source ... " />
+                <marker date="1499121057747" expanded="true" signature="2187:2259" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListEx.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DynamicData/List/ListEx.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-222">
+              <caret line="345" column="34" lean-forward="false" selection-start-line="345" selection-start-column="34" selection-end-line="345" selection-end-column="34" />
+              <folding>
+                <marker date="1499121057130" expanded="false" signature="6:161" ph="..." />
+                <marker date="1499121057130" expanded="true" signature="225:23230" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="232:319" ph="/// Extensions to help with maintainence of a list ... " />
+                <marker date="1499121057130" expanded="true" signature="350:23228" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="365:6863" ph="Apply operators to a list" />
+                <marker date="1499121057130" expanded="true" signature="501:850" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="860:1246" ph="/// Clones the list from the specified change set ... " />
+                <marker date="1499121057130" expanded="true" signature="1327:1668" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="1592:1658" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="1746:5923" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="1850:5913" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="2064:2184" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="2209:2305" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="2902:3016" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="3041:3283" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="3711:3817" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="3842:3941" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="4077:4353" ph="/* ignore this case because WhereReasonsAre removes the index [in which case call RemoveMany] ... */" />
+                <marker date="1499121057130" expanded="true" signature="4454:4578" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="4603:4702" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="5254:5384" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="5443:5581" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="5606:5854" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="5933:6483" ph="/// Clears the collection if the number of items in the range is the same as the source collection. Otherwise a   ... " />
+                <marker date="1499121057130" expanded="true" signature="6573:6843" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="6679:6739" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="6756:6833" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="6873:11708" ph="Binary Search / Lookup" />
+                <marker date="1499121057130" expanded="true" signature="6913:7246" ph="/// Performs a binary search on the specified collection. ... " />
+                <marker date="1499121057130" expanded="true" signature="7329:7420" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="7430:7874" ph="/// Performs a binary search on the specified collection. ... " />
+                <marker date="1499121057130" expanded="true" signature="7984:8067" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="8077:8719" ph="/// Performs a binary search on the specified collection. ... " />
+                <marker date="1499121057130" expanded="true" signature="8849:9685" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="9158:9647" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="9342:9418" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="9465:9541" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="9562:9633" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="9695:10089" ph="/// Lookups the item using the specified comparer. If matched, the item's index is also returned ... " />
+                <marker date="1499121057130" expanded="true" signature="10239:10488" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="10498:10779" ph="/// Finds the index of the current item using the specified equality comparer ... " />
+                <marker date="1499121057130" expanded="true" signature="10852:10946" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="10956:11321" ph="/// Finds the index of the current item using the specified equality comparer ... " />
+                <marker date="1499121057130" expanded="true" signature="11433:11687" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="11512:11654" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="11718:23222" ph="Amendment" />
+                <marker date="1499121057130" expanded="true" signature="11745:12117" ph="/// Adds the  items to the specified list ... " />
+                <marker date="1499121057130" expanded="true" signature="12195:12415" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="12425:12792" ph="/// Adds the range to the source ist ... " />
+                <marker date="1499121057130" expanded="true" signature="12875:13395" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="13081:13160" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="13209:13297" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="13314:13385" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="13405:13811" ph="/// Adds the range to the list. The starting range is at the specified index ... " />
+                <marker date="1499121057130" expanded="true" signature="13905:14445" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="14111:14200" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="14249:14347" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="14364:14435" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="14455:14883" ph="/// Adds the range if a negative is specified, otherwise the range is added at the end of the list ... " />
+                <marker date="1499121057130" expanded="true" signature="14985:16223" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="15191:15464" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="15237:15338" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="15359:15450" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="15513:15804" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="15559:15669" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="15690:15790" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="15821:16213" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="15867:16095" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="16116:16199" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="16233:16590" ph="/// Removes many items from the collection in an optimal way ... " />
+                <marker date="1499121057130" expanded="true" signature="16693:18107" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="16716:16980" ph="/* This may seem OTT but for large sets of data where there are many removes scattered ... */" />
+                <marker date="1499121057130" expanded="true" signature="17484:17668" ph="/* if there are duplicates, it could be that an item exists in the ... */" />
+                <marker date="1499121057130" expanded="true" signature="17772:17901" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="17918:18097" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="18117:18589" ph="/// Removes the number of items, starting at the specified index ... " />
+                <marker date="1499121057130" expanded="true" signature="18676:19204" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="18803:18892" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="18941:19039" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="19056:19194" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="19214:19591" ph="/// Removes the  items from the specified list ... " />
+                <marker date="1499121057130" expanded="true" signature="19672:19903" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="19913:20319" ph="/// Replaces the specified item. ... " />
+                <marker date="1499121057130" expanded="true" signature="20426:20970" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="20981:21400" ph="/// Replaces the item if found, otherwise the item is added to the list ... " />
+                <marker date="1499121057130" expanded="true" signature="21512:22029" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="21859:21928" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="21945:22018" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="22039:22377" ph="/// Ensures the collection has enough capacity where capacity ... " />
+                <marker date="1499121057130" expanded="true" signature="22473:23202" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="22682:22813" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="22862:23002" ph="{...}" />
+                <marker date="1499121057130" expanded="true" signature="23045:23192" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IChangeSet.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DynamicData/IChangeSet.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <marker date="1499121057316" expanded="true" signature="22:936" ph="{...}" />
+                <marker date="1499121057316" expanded="true" signature="29:113" ph="/// Base interface represeting a set of changed ... " />
+                <marker date="1499121057316" expanded="true" signature="145:934" ph="{...}" />
+                <marker date="1499121057316" expanded="true" signature="160:241" ph="///     Gets the number of additions ... " />
+                <marker date="1499121057316" expanded="true" signature="277:356" ph="///     Gets the number of removes ... " />
+                <marker date="1499121057316" expanded="true" signature="395:467" ph="/// The number of refreshes ... " />
+                <marker date="1499121057316" expanded="true" signature="508:585" ph="///     Gets the number of moves ... " />
+                <marker date="1499121057316" expanded="true" signature="622:697" ph="///     The total update count ... " />
+                <marker date="1499121057316" expanded="true" signature="734:893" ph="/// Gets or sets the capacity of the change set ... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObservableCacheAlias.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DynamicData/Alias/ObservableCacheAlias.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1479">
+              <caret line="18" column="41" lean-forward="false" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+              <folding>
+                <marker date="1499121057735" expanded="false" signature="6:187" ph="..." />
+                <marker date="1499121057735" expanded="true" signature="216:21954" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="223:292" ph="/// Observable cache alias names ... " />
+                <marker date="1499121057735" expanded="true" signature="337:21952" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="352:5778" ph="Filter -&gt; Where" />
+                <marker date="1499121057735" expanded="true" signature="386:744" ph="/// Filters the specified source. ... " />
+                <marker date="1499121057735" expanded="true" signature="906:1049" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="1059:1492" ph="/// Creates a filtered stream which can be dynamically filtered ... " />
+                <marker date="1499121057735" expanded="true" signature="1709:1963" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="1973:2544" ph="/// Creates a filtered stream which can be dynamically filtered ... " />
+                <marker date="1499121057735" expanded="true" signature="2743:2988" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="2999:3583" ph="/// Creates a filtered stream which can be dynamically filtered ... " />
+                <marker date="1499121057735" expanded="true" signature="3855:4219" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="4231:5085" ph="/// Filters source on the specified property using the specified predicate. ... " />
+                <marker date="1499121057735" expanded="true" signature="5395:5758" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="5788:12561" ph="Transform -&gt; Select" />
+                <marker date="1499121057735" expanded="true" signature="5826:6613" ph="/// Projects each update item to a new form using the specified transform function ... " />
+                <marker date="1499121057735" expanded="true" signature="7063:7433" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="7443:8255" ph="/// Projects each update item to a new form using the specified transform function ... " />
+                <marker date="1499121057735" expanded="true" signature="8733:8824" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="8834:9620" ph="/// Projects each update item to a new form using the specified transform function ... " />
+                <marker date="1499121057735" expanded="true" signature="9878:9969" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="9979:10791" ph="/// Projects each update item to a new form using the specified transform function ... " />
+                <marker date="1499121057735" expanded="true" signature="11257:11531" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="11541:11967" ph="/// Transforms the object to a fully recursive tree, create a hiearchy based on the pivot function ... " />
+                <marker date="1499121057735" expanded="true" signature="12305:12541" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="12571:13774" ph="Transform many -&gt; SelectMany" />
+                <marker date="1499121057735" expanded="true" signature="12618:13337" ph="/// Equivalent to a select many transform. To work, the key must individually identify each child.  ... " />
+                <marker date="1499121057735" expanded="true" signature="13664:13752" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="13784:21946" ph="Transform safe -&gt; SelectSafe" />
+                <marker date="1499121057735" expanded="true" signature="13830:14962" ph="/// Projects each update item to a new form using the specified transform function, ... " />
+                <marker date="1499121057735" expanded="true" signature="15570:16052" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="16062:17194" ph="/// Projects each update item to a new form using the specified transform function, ... " />
+                <marker date="1499121057735" expanded="true" signature="17824:18209" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="18219:19351" ph="/// Projects each update item to a new form using the specified transform function, ... " />
+                <marker date="1499121057735" expanded="true" signature="19702:20087" ph="{...}" />
+                <marker date="1499121057735" expanded="true" signature="20097:21203" ph="/// Projects each update item to a new form using the specified transform function, ... " />
+                <marker date="1499121057735" expanded="true" signature="21817:21926" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BatchFixture.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DynamicData.Tests/List/BatchFixture.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1499121056831" expanded="false" signature="6:144" ph="..." />
+                <marker date="1499121056831" expanded="true" signature="178:1451" ph="{...}" />
+                <marker date="1499121056831" expanded="true" signature="228:1449" ph="{...}" />
+                <marker date="1499121056831" expanded="true" signature="434:764" ph="{...}" />
+                <marker date="1499121056831" expanded="true" signature="795:878" ph="{...}" />
+                <marker date="1499121056831" expanded="true" signature="959:1107" ph="{...}" />
+                <marker date="1499121056831" expanded="true" signature="1185:1443" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BufferFixture.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DynamicData.Tests/List/BufferFixture.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+              <folding>
+                <marker date="1499121056824" expanded="true" signature="6:144" ph="..." />
+                <marker date="1499121056824" expanded="true" signature="178:1360" ph="{...}" />
+                <marker date="1499121056824" expanded="true" signature="229:1358" ph="{...}" />
+                <marker date="1499121056824" expanded="true" signature="436:673" ph="{...}" />
+                <marker date="1499121056824" expanded="true" signature="704:787" ph="{...}" />
+                <marker date="1499121056824" expanded="true" signature="868:1016" ph="{...}" />
+                <marker date="1499121056824" expanded="true" signature="1094:1352" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DynamicData (3 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DynamicData.Tests/List" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected=".NET Project.Default">
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b512c383-01dc-41da-969e-c283d0360a24" name="Default" comment="" />
+      <created>1499363690116</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1499363690116</updated>
+      <workItem from="1499363694267" duration="3674000" />
+    </task>
+    <task id="LOCAL-00001" summary="Clone v5 changes into v4 branch">
+      <created>1499366439390</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1499366439390</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Clone v5 changes into v4 branch [Fix build]">
+      <created>1499367555466</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1499367555466</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3674000" />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.50208336" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5306554" sideWeight="0.49791667" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Clone v5 changes into v4 branch" />
+    <MESSAGE value="Clone v5 changes into v4 branch [Fix build]" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clone v5 changes into v4 branch [Fix build]" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DynamicData/IChangeSet.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <marker date="1499121057316" expanded="true" signature="22:936" ph="{...}" />
+            <marker date="1499121057316" expanded="true" signature="29:113" ph="/// Base interface represeting a set of changed ... " />
+            <marker date="1499121057316" expanded="true" signature="145:934" ph="{...}" />
+            <marker date="1499121057316" expanded="true" signature="160:241" ph="///     Gets the number of additions ... " />
+            <marker date="1499121057316" expanded="true" signature="277:356" ph="///     Gets the number of removes ... " />
+            <marker date="1499121057316" expanded="true" signature="395:467" ph="/// The number of refreshes ... " />
+            <marker date="1499121057316" expanded="true" signature="508:585" ph="///     Gets the number of moves ... " />
+            <marker date="1499121057316" expanded="true" signature="622:697" ph="///     The total update count ... " />
+            <marker date="1499121057316" expanded="true" signature="734:893" ph="/// Gets or sets the capacity of the change set ... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DynamicData/Alias/ObservableCacheAlias.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1479">
+          <caret line="18" column="41" lean-forward="false" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+          <folding>
+            <marker date="1499121057735" expanded="false" signature="6:187" ph="..." />
+            <marker date="1499121057735" expanded="true" signature="216:21954" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="223:292" ph="/// Observable cache alias names ... " />
+            <marker date="1499121057735" expanded="true" signature="337:21952" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="352:5778" ph="Filter -&gt; Where" />
+            <marker date="1499121057735" expanded="true" signature="386:744" ph="/// Filters the specified source. ... " />
+            <marker date="1499121057735" expanded="true" signature="906:1049" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="1059:1492" ph="/// Creates a filtered stream which can be dynamically filtered ... " />
+            <marker date="1499121057735" expanded="true" signature="1709:1963" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="1973:2544" ph="/// Creates a filtered stream which can be dynamically filtered ... " />
+            <marker date="1499121057735" expanded="true" signature="2743:2988" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="2999:3583" ph="/// Creates a filtered stream which can be dynamically filtered ... " />
+            <marker date="1499121057735" expanded="true" signature="3855:4219" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="4231:5085" ph="/// Filters source on the specified property using the specified predicate. ... " />
+            <marker date="1499121057735" expanded="true" signature="5395:5758" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="5788:12561" ph="Transform -&gt; Select" />
+            <marker date="1499121057735" expanded="true" signature="5826:6613" ph="/// Projects each update item to a new form using the specified transform function ... " />
+            <marker date="1499121057735" expanded="true" signature="7063:7433" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="7443:8255" ph="/// Projects each update item to a new form using the specified transform function ... " />
+            <marker date="1499121057735" expanded="true" signature="8733:8824" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="8834:9620" ph="/// Projects each update item to a new form using the specified transform function ... " />
+            <marker date="1499121057735" expanded="true" signature="9878:9969" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="9979:10791" ph="/// Projects each update item to a new form using the specified transform function ... " />
+            <marker date="1499121057735" expanded="true" signature="11257:11531" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="11541:11967" ph="/// Transforms the object to a fully recursive tree, create a hiearchy based on the pivot function ... " />
+            <marker date="1499121057735" expanded="true" signature="12305:12541" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="12571:13774" ph="Transform many -&gt; SelectMany" />
+            <marker date="1499121057735" expanded="true" signature="12618:13337" ph="/// Equivalent to a select many transform. To work, the key must individually identify each child.  ... " />
+            <marker date="1499121057735" expanded="true" signature="13664:13752" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="13784:21946" ph="Transform safe -&gt; SelectSafe" />
+            <marker date="1499121057735" expanded="true" signature="13830:14962" ph="/// Projects each update item to a new form using the specified transform function, ... " />
+            <marker date="1499121057735" expanded="true" signature="15570:16052" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="16062:17194" ph="/// Projects each update item to a new form using the specified transform function, ... " />
+            <marker date="1499121057735" expanded="true" signature="17824:18209" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="18219:19351" ph="/// Projects each update item to a new form using the specified transform function, ... " />
+            <marker date="1499121057735" expanded="true" signature="19702:20087" ph="{...}" />
+            <marker date="1499121057735" expanded="true" signature="20097:21203" ph="/// Projects each update item to a new form using the specified transform function, ... " />
+            <marker date="1499121057735" expanded="true" signature="21817:21926" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DynamicData.Tests/List/BatchFixture.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1499121056831" expanded="false" signature="6:144" ph="..." />
+            <marker date="1499121056831" expanded="true" signature="178:1451" ph="{...}" />
+            <marker date="1499121056831" expanded="true" signature="228:1449" ph="{...}" />
+            <marker date="1499121056831" expanded="true" signature="434:764" ph="{...}" />
+            <marker date="1499121056831" expanded="true" signature="795:878" ph="{...}" />
+            <marker date="1499121056831" expanded="true" signature="959:1107" ph="{...}" />
+            <marker date="1499121056831" expanded="true" signature="1185:1443" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DynamicData.Tests/List/BufferFixture.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <folding>
+            <marker date="1499121056824" expanded="true" signature="6:144" ph="..." />
+            <marker date="1499121056824" expanded="true" signature="178:1360" ph="{...}" />
+            <marker date="1499121056824" expanded="true" signature="229:1358" ph="{...}" />
+            <marker date="1499121056824" expanded="true" signature="436:673" ph="{...}" />
+            <marker date="1499121056824" expanded="true" signature="704:787" ph="{...}" />
+            <marker date="1499121056824" expanded="true" signature="868:1016" ph="{...}" />
+            <marker date="1499121056824" expanded="true" signature="1094:1352" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DynamicData/Aggregation/CountEx.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1499121057747" expanded="false" signature="6:60" ph="..." />
+            <marker date="1499121057747" expanded="true" signature="95:2267" ph="{...}" />
+            <marker date="1499121057747" expanded="true" signature="102:159" ph="/// Count extensions ... " />
+            <marker date="1499121057747" expanded="true" signature="191:2265" ph="{...}" />
+            <marker date="1499121057747" expanded="true" signature="206:544" ph="/// Counts the total number of items in the underlying data source ... " />
+            <marker date="1499121057747" expanded="true" signature="656:728" ph="{...}" />
+            <marker date="1499121057747" expanded="true" signature="738:1008" ph="/// Counts the total number of items in the underlying data source ... " />
+            <marker date="1499121057747" expanded="true" signature="1108:1180" ph="{...}" />
+            <marker date="1499121057747" expanded="true" signature="1190:1460" ph="/// Counts the total number of items in the underlying data source ... " />
+            <marker date="1499121057747" expanded="true" signature="1569:1799" ph="{...}" />
+            <marker date="1499121057747" expanded="true" signature="1809:2079" ph="/// Counts the total number of items in the underlying data source ... " />
+            <marker date="1499121057747" expanded="true" signature="2187:2259" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DynamicData/List/ListEx.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-222">
+          <caret line="345" column="34" lean-forward="false" selection-start-line="345" selection-start-column="34" selection-end-line="345" selection-end-column="34" />
+          <folding>
+            <marker date="1499121057130" expanded="false" signature="6:161" ph="..." />
+            <marker date="1499121057130" expanded="true" signature="225:23230" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="232:319" ph="/// Extensions to help with maintainence of a list ... " />
+            <marker date="1499121057130" expanded="true" signature="350:23228" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="365:6863" ph="Apply operators to a list" />
+            <marker date="1499121057130" expanded="true" signature="501:850" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="860:1246" ph="/// Clones the list from the specified change set ... " />
+            <marker date="1499121057130" expanded="true" signature="1327:1668" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="1592:1658" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="1746:5923" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="1850:5913" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="2064:2184" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="2209:2305" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="2902:3016" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="3041:3283" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="3711:3817" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="3842:3941" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="4077:4353" ph="/* ignore this case because WhereReasonsAre removes the index [in which case call RemoveMany] ... */" />
+            <marker date="1499121057130" expanded="true" signature="4454:4578" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="4603:4702" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="5254:5384" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="5443:5581" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="5606:5854" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="5933:6483" ph="/// Clears the collection if the number of items in the range is the same as the source collection. Otherwise a   ... " />
+            <marker date="1499121057130" expanded="true" signature="6573:6843" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="6679:6739" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="6756:6833" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="6873:11708" ph="Binary Search / Lookup" />
+            <marker date="1499121057130" expanded="true" signature="6913:7246" ph="/// Performs a binary search on the specified collection. ... " />
+            <marker date="1499121057130" expanded="true" signature="7329:7420" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="7430:7874" ph="/// Performs a binary search on the specified collection. ... " />
+            <marker date="1499121057130" expanded="true" signature="7984:8067" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="8077:8719" ph="/// Performs a binary search on the specified collection. ... " />
+            <marker date="1499121057130" expanded="true" signature="8849:9685" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="9158:9647" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="9342:9418" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="9465:9541" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="9562:9633" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="9695:10089" ph="/// Lookups the item using the specified comparer. If matched, the item's index is also returned ... " />
+            <marker date="1499121057130" expanded="true" signature="10239:10488" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="10498:10779" ph="/// Finds the index of the current item using the specified equality comparer ... " />
+            <marker date="1499121057130" expanded="true" signature="10852:10946" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="10956:11321" ph="/// Finds the index of the current item using the specified equality comparer ... " />
+            <marker date="1499121057130" expanded="true" signature="11433:11687" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="11512:11654" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="11718:23222" ph="Amendment" />
+            <marker date="1499121057130" expanded="true" signature="11745:12117" ph="/// Adds the  items to the specified list ... " />
+            <marker date="1499121057130" expanded="true" signature="12195:12415" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="12425:12792" ph="/// Adds the range to the source ist ... " />
+            <marker date="1499121057130" expanded="true" signature="12875:13395" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="13081:13160" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="13209:13297" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="13314:13385" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="13405:13811" ph="/// Adds the range to the list. The starting range is at the specified index ... " />
+            <marker date="1499121057130" expanded="true" signature="13905:14445" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="14111:14200" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="14249:14347" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="14364:14435" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="14455:14883" ph="/// Adds the range if a negative is specified, otherwise the range is added at the end of the list ... " />
+            <marker date="1499121057130" expanded="true" signature="14985:16223" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="15191:15464" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="15237:15338" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="15359:15450" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="15513:15804" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="15559:15669" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="15690:15790" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="15821:16213" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="15867:16095" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="16116:16199" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="16233:16590" ph="/// Removes many items from the collection in an optimal way ... " />
+            <marker date="1499121057130" expanded="true" signature="16693:18107" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="16716:16980" ph="/* This may seem OTT but for large sets of data where there are many removes scattered ... */" />
+            <marker date="1499121057130" expanded="true" signature="17484:17668" ph="/* if there are duplicates, it could be that an item exists in the ... */" />
+            <marker date="1499121057130" expanded="true" signature="17772:17901" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="17918:18097" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="18117:18589" ph="/// Removes the number of items, starting at the specified index ... " />
+            <marker date="1499121057130" expanded="true" signature="18676:19204" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="18803:18892" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="18941:19039" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="19056:19194" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="19214:19591" ph="/// Removes the  items from the specified list ... " />
+            <marker date="1499121057130" expanded="true" signature="19672:19903" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="19913:20319" ph="/// Replaces the specified item. ... " />
+            <marker date="1499121057130" expanded="true" signature="20426:20970" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="20981:21400" ph="/// Replaces the item if found, otherwise the item is added to the list ... " />
+            <marker date="1499121057130" expanded="true" signature="21512:22029" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="21859:21928" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="21945:22018" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="22039:22377" ph="/// Ensures the collection has enough capacity where capacity ... " />
+            <marker date="1499121057130" expanded="true" signature="22473:23202" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="22682:22813" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="22862:23002" ph="{...}" />
+            <marker date="1499121057130" expanded="true" signature="23045:23192" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
