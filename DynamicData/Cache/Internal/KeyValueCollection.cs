@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DynamicData.Kernel;
 
 namespace DynamicData.Cache.Internal
@@ -14,7 +15,7 @@ namespace DynamicData.Cache.Internal
                                   SortReason sortReason,
                                   SortOptimisations optimisations)
         {
-            _items = items?.AsList() ?? throw new ArgumentNullException(nameof(items));
+            _items = items?.ToList() ?? throw new ArgumentNullException(nameof(items));
             Comparer = comparer;
             SortReason = sortReason;
             Optimisations = optimisations;
